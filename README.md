@@ -14,3 +14,13 @@ a library that automatically sends notices on error.
 This project is dual licensed under MIT and Apache2, but contains a lot of
 examples and documentation from
 [Airbrake's API documentation](<(https://airbrake.io/docs/api/#error-notification-v3)>).
+
+## Running the tests
+
+```bash
+docker-compose -f test_environment/docker-compose.yml up -d errbit
+
+# optionally login to http://localhost:8080/ admin@example.com password.
+
+deno test --allow-net=localhost:8080
+```

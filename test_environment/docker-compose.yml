@@ -1,0 +1,26 @@
+{
+  "version": "3.8",
+  "services":
+    {
+      "errbit":
+        {
+          "depends_on": ["mongo"],
+          "image": "errbit/errbit:v0.9.0",
+          "environment":
+            {
+              "ERRBIT_HOST": "localhost",
+              "ERRBIT_PROTOCOL": "http",
+              "ERRBIT_PORT": "8080",
+              "MONGO_URL": "mongodb://mongo/errbit",
+            },
+          "ports": ["127.0.0.1:8080:8080"],
+        },
+      "mongo":
+        {
+          "environment": { "MONGO_INITDB_DATABASE": "errbit" },
+          "image": "mongo:4.4",
+          "volumes":
+            ["./mongo_data.js:/docker-entrypoint-initdb.d/mongo_data.js:ro"],
+        },
+    },
+}

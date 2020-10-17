@@ -75,8 +75,8 @@ const exampleNotice: Notice = {
 Deno.test("Notifier sends off request to local Errbit", async () => {
   const notifier = new Notifier(
     "1",
-    "736a85d9b8470a105ada9ae4403829a1",
-    "http://localhost:3000/",
+    "fd8dc33455afb0a2fc702b967667a70c",
+    "http://localhost:8080/",
   );
   const response = await notifier.notify(exampleNotice);
   assert(response instanceof Object, "Expect response to be an object");
